@@ -8,7 +8,7 @@ class PlayerContainer extends Component{
 
   state = {
     srcMedia : 'http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4',
-    pause : false,
+    pause : true,
     duration : 0,
     currentTime : 0,
     spinner : false
@@ -70,7 +70,7 @@ class PlayerContainer extends Component{
   componentDidMount()
   {
     this.setState({
-      pause : !this.state.pause
+      pause : (!this.props.autoplay)
     })
   }
 
@@ -95,7 +95,9 @@ class PlayerContainer extends Component{
   {
     return (
         <PlayerLayout refPlayer={this.refPlayer}>
-        <Video autoplay src={this.state.srcMedia} 
+        <Video
+        autoplay={this.props.autoplay}
+        src={this.state.srcMedia} 
         pause={this.state.pause} 
         duration={this.duration} 
         currentTime={this.currentTime}

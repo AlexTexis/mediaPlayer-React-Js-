@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 
 class Video extends Component{
   componentWillReceiveProps(nextProps){
-    
+    // console.log(nextProps.pause)
     if(!this.props.pause === nextProps.pause){
       this.togglePlay()
     }
@@ -11,10 +11,10 @@ class Video extends Component{
   togglePlay = ()=>{
     if(this.props.pause)
     {
-      this.video.pause()
+      this.video.play()
     }
     else{
-      this.video.play()
+      this.video.pause()
     }
   }
 
@@ -26,8 +26,8 @@ class Video extends Component{
   {
     return ( 
       <video
-      src={this.props.src}
       ref = {this.refVideo}
+      src={this.props.src}
       autoPlay={this.props.autoplay}
       onLoadedMetadata={this.props.duration}
       onTimeUpdate={this.props.currentTime}
