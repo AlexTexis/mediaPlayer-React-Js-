@@ -1,0 +1,33 @@
+body{
+  margin: 0;
+  background-color: #21252B
+}
+
+.player{
+  min-height: 100vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player-container{
+  flex-shrink: 0;
+width: 600px;
+ height: 400px;
+background-color:#222; 
+border-radius:4px;
+margin: 0 auto;
+position: relative;
+overflow: hidden;
+}
+
+.player-container:hover .controls-container{
+  transition-delay: .2s;
+  visibility: visible;
+  opacity: 1;
+}
+
+.player-container video{
+  width: 100%;
+  height: 100%;
+}
